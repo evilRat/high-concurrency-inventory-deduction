@@ -18,8 +18,6 @@
 
 package com.evil.highconcurrentinventorydeduction.domain;
 
-import com.evil.highconcurrentinventorydeduction.domain.BaseEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;

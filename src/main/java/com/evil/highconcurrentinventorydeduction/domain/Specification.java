@@ -18,8 +18,6 @@
 
 package com.evil.highconcurrentinventorydeduction.domain;
 
-import com.github.fenixsoft.bookstore.domain.BaseEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
@@ -38,7 +36,7 @@ public class Specification extends BaseEntity {
     private String item;
 
     @NotEmpty(message = "商品规格内容不允许为空")
-    private String value;
+    private String v;
 
     @NotNull(message = "商品规格必须归属于指定商品")
     @Column(name = "product_id")
@@ -52,12 +50,12 @@ public class Specification extends BaseEntity {
         this.item = item;
     }
 
-    public String getValue() {
-        return value;
+    public String getV() {
+        return v;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setV(String value) {
+        this.v = value;
     }
 
     public Integer getProductId() {

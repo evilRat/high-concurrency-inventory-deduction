@@ -5,7 +5,7 @@ DROP TABLE product IF EXISTS;
 
 CREATE TABLE product
 (
-    id          INTEGER IDENTITY PRIMARY KEY,
+    id          INTEGER PRIMARY KEY,
     title       VARCHAR(50),
     price       DECIMAL,
     rate        FLOAT,
@@ -17,7 +17,7 @@ CREATE INDEX product_title ON product (title);
 
 CREATE TABLE stockpile
 (
-    id         INTEGER IDENTITY PRIMARY KEY,
+    id         INTEGER PRIMARY KEY,
     amount     INTEGER,
     frozen     INTEGER,
     product_id INTEGER
@@ -27,9 +27,9 @@ ALTER TABLE stockpile
 
 CREATE TABLE specification
 (
-    id         INTEGER IDENTITY PRIMARY KEY,
+    id         INTEGER PRIMARY KEY,
     item       VARCHAR(50),
-    value      VARCHAR(100),
+    v      VARCHAR(100),
     product_id INTEGER
 );
 ALTER TABLE specification
@@ -37,7 +37,7 @@ ALTER TABLE specification
 
 CREATE TABLE advertisement
 (
-    id         INTEGER IDENTITY PRIMARY KEY,
+    id         INTEGER PRIMARY KEY,
     image      VARCHAR(100),
     product_id INTEGER
 );

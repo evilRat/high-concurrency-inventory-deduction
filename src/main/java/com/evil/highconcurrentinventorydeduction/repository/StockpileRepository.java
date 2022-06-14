@@ -18,7 +18,7 @@
 
 package com.evil.highconcurrentinventorydeduction.repository;
 
-import com.github.fenixsoft.bookstore.domain.warehouse.Stockpile;
+import com.evil.highconcurrentinventorydeduction.domain.Stockpile;
 import org.springframework.data.repository.CrudRepository;
 
 /**

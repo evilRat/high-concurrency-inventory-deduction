@@ -16,53 +16,54 @@
  *        https://github.com/fenixsoft
  */
 
-package com.evil.highconcurrentinventorydeduction.service;
+package com.evil.highconcurrentinventorydeduction.application;
 
 import com.evil.highconcurrentinventorydeduction.domain.Product;
-import com.evil.highconcurrentinventorydeduction.repository.ProductRepository;
+import com.evil.highconcurrentinventorydeduction.service.ProductService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.transaction.Transactional;
 
 /**
- * 产品领域服务
+ * 产品的应用服务接口
  *
  * @author icyfenix@gmail.com
- * @date 2020/3/12 20:58
+ * @date 2020/3/15 20:05
  **/
 @Named
-public class ProductService {
+@Transactional
+public class ProductApplicationService {
 
     @Inject
-    private ProductRepository repository;
-
+    private ProductService service;
 
     /**
      * 获取仓库中所有的货物信息
      */
     public Iterable<Product> getAllProducts() {
-        return repository.findAll();
+        return service.getAllProducts();
     }
 
     /**
      * 获取仓库中指定的货物信息
      */
     public Product getProduct(Integer id) {
-        return repository.findById(id).orElse(null);
+        return service.getProduct(id);
     }
 
     /**
-     * 创建或者更新产品信息
+     * 创建或更新产品信息
      */
     public Product saveProduct(Product product) {
-        return repository.save(product);
+        return service.saveProduct(product);
     }
 
     /**
      * 删除指定产品
      */
     public void removeProduct(Integer id) {
-        repository.deleteById(id);
+        service.removeProduct(id);
     }
 
 }

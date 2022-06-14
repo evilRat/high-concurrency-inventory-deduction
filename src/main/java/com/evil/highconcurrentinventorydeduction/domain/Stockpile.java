@@ -18,8 +18,6 @@
 
 package com.evil.highconcurrentinventorydeduction.domain;
 
-import com.github.fenixsoft.bookstore.domain.BaseEntity;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
