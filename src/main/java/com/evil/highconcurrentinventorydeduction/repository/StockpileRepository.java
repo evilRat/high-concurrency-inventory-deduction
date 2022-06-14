@@ -19,6 +19,7 @@
 package com.evil.highconcurrentinventorydeduction.repository;
 
 import com.evil.highconcurrentinventorydeduction.domain.Stockpile;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * 库存数据仓库

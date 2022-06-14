@@ -18,6 +18,7 @@
 
 package com.evil.highconcurrentinventorydeduction.service;
 
+import com.evil.highconcurrentinventorydeduction.domain.Stockpile;
 import com.evil.highconcurrentinventorydeduction.repository.StockpileRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

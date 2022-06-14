@@ -2,6 +2,7 @@ package com.evil.highconcurrentinventorydeduction.resource;
 
 import com.evil.highconcurrentinventorydeduction.application.StockpileApplicationService;
 import com.evil.highconcurrentinventorydeduction.domain.DeliveredStatus;
+import com.evil.highconcurrentinventorydeduction.domain.Stockpile;
 import com.evil.highconcurrentinventorydeduction.infrastructure.CommonResponse;
 import com.evil.highconcurrentinventorydeduction.infrastructure.Response;
 import org.springframework.cache.annotation.CacheConfig;
@@ -47,7 +48,7 @@ public class StockpileResource {
      * 将指定的产品库存调整为指定数额
      */
     @PatchMapping("/stockpile/delivered/{productId}")
-    public Response setDeliveredStatus(@PathVariable("productId") Integer productId, @RequestParam("status") DeliveredStatus status, @QueryParam("amount") Integer amount) {
+    public Response setDeliveredStatus(@PathVariable("productId") Integer productId, @RequestParam("status") DeliveredStatus status, @RequestParam("amount") Integer amount) {
         return CommonResponse.op(() -> service.setDeliveredStatus(productId, status, amount));
     }
 }

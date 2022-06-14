@@ -26,8 +26,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 /**
  * 广告相关的资源
@@ -37,7 +35,6 @@ import javax.ws.rs.core.MediaType;
  **/
 @RequestMapping("/advertisements")
 @RestController
-@Produces(MediaType.APPLICATION_JSON)
 public class AdvertisementResource {
 
     @Resource
