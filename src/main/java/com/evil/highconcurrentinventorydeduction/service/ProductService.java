@@ -20,9 +20,10 @@ package com.evil.highconcurrentinventorydeduction.service;
 
 import com.evil.highconcurrentinventorydeduction.domain.Product;
 import com.evil.highconcurrentinventorydeduction.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import javax.annotation.Resource;
+
 
 /**
  * 产品领域服务
@@ -30,10 +31,10 @@ import javax.inject.Named;
  * @author icyfenix@gmail.com
  * @date 2020/3/12 20:58
  **/
-@Named
+@Service
 public class ProductService {
 
-    @Inject
+    @Resource
     private ProductRepository repository;
 
 

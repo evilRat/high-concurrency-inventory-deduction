@@ -20,9 +20,10 @@ package com.evil.highconcurrentinventorydeduction.application;
 
 import com.evil.highconcurrentinventorydeduction.domain.Product;
 import com.evil.highconcurrentinventorydeduction.service.ProductService;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
 /**
@@ -31,11 +32,11 @@ import javax.transaction.Transactional;
  * @author icyfenix@gmail.com
  * @date 2020/3/15 20:05
  **/
-@Named
+@Component
 @Transactional
 public class ProductApplicationService {
 
-    @Inject
+    @Resource
     private ProductService service;
 
     /**

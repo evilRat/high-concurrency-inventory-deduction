@@ -2,15 +2,13 @@ package com.evil.highconcurrentinventorydeduction.resource;
 
 import com.evil.highconcurrentinventorydeduction.application.StockpileApplicationService;
 import com.evil.highconcurrentinventorydeduction.domain.DeliveredStatus;
-import com.evil.highconcurrentinventorydeduction.domain.Stockpile;
 import com.evil.highconcurrentinventorydeduction.infrastructure.CommonResponse;
+import com.evil.highconcurrentinventorydeduction.infrastructure.Response;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.*;
 
-import javax.inject.Inject;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.annotation.Resource;
+
 
 /**
  * 库存相关的资源
@@ -19,30 +17,27 @@ import javax.ws.rs.core.Response;
  * @date 2020/4/19 21:40
  **/
 
-@Path("/products")
-@Component
+@RequestMapping("/products")
+@RestController
 @CacheConfig(cacheNames = "resource.product")
-@Produces(MediaType.APPLICATION_JSON)
 public class StockpileResource {
 
-    @Inject
+    @Resource
     private StockpileApplicationService service;
 
     /**
      * 将指定的产品库存调整为指定数额
      */
-    @PATCH
-    @Path("/stockpile/{productId}")
-    public Response updateStockpile(@PathParam("productId") Integer productId, @QueryParam("amount") Integer amount) {
+    @PatchMapping("/stockpile/{productId}")
+    public Response updateStockpile(@PathVariable("productId") Integer productId, @RequestParam("amount") Integer amount) {
         return CommonResponse.op(() -> service.setStockpileAmountByProductId(productId, amount));
     }
 
     /**
      * 根据产品查询库存
      */
-    @GET
-    @Path("/stockpile/{productId}")
-    public Stockpile queryStockpile(@PathParam("productId") Integer productId) {
+    @GetMapping("/stockpile/{productId}")
+    public Stockpile queryStockpile(@PathVariable("productId") Integer productId) {
         return service.getStockpile(productId);
     }
 
@@ -51,9 +46,8 @@ public class StockpileResource {
     /**
      * 将指定的产品库存调整为指定数额
      */
-    @PATCH
-    @Path("/stockpile/delivered/{productId}")
-    public Response setDeliveredStatus(@PathParam("productId") Integer productId, @QueryParam("status") DeliveredStatus status, @QueryParam("amount") Integer amount) {
+    @PatchMapping("/stockpile/delivered/{productId}")
+    public Response setDeliveredStatus(@PathVariable("productId") Integer productId, @RequestParam("status") DeliveredStatus status, @QueryParam("amount") Integer amount) {
         return CommonResponse.op(() -> service.setDeliveredStatus(productId, status, amount));
     }
 }

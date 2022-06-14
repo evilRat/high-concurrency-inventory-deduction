@@ -18,13 +18,12 @@
 
 package com.evil.highconcurrentinventorydeduction.service;
 
-import com.evil.highconcurrentinventorydeduction.domain.Stockpile;
 import com.evil.highconcurrentinventorydeduction.repository.StockpileRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import javax.annotation.Resource;
 import javax.persistence.EntityNotFoundException;
 
 /**
@@ -33,12 +32,12 @@ import javax.persistence.EntityNotFoundException;
  * @author icyfenix@gmail.com
  * @date 2020/3/12 20:23
  **/
-@Named
+@Service
 public class StockpileService {
 
     private static final Logger log = LoggerFactory.getLogger(StockpileService.class);
 
-    @Inject
+    @Resource
     private StockpileRepository repository;
 
     /**
