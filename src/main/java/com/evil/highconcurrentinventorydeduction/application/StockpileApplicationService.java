@@ -54,4 +54,8 @@ public class StockpileApplicationService {
         }
     }
 
+    public void decrease(Integer productId, Integer amount) {
+        stockpileService.decrease(productId, amount);
+    }
+
 }

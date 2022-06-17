@@ -51,4 +51,13 @@ public class StockpileResource {
     public Response setDeliveredStatus(@PathVariable("productId") Integer productId, @RequestParam("status") DeliveredStatus status, @RequestParam("amount") Integer amount) {
         return CommonResponse.op(() -> service.setDeliveredStatus(productId, status, amount));
     }
+
+    /**
+     * 扣减库存
+     */
+    @PatchMapping("/stockpile/decrease/{productId}/{amount}")
+    public Response decrease(@PathVariable("productId") Integer productId, @PathVariable("amount") Integer amount) {
+        return CommonResponse.op(() -> service.decrease(productId, amount));
+    }
+
 }
