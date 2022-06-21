@@ -1,11 +1,11 @@
-DROP TABLE specification IF EXISTS;
-DROP TABLE advertisement IF EXISTS;
-DROP TABLE stockpile IF EXISTS;
-DROP TABLE product IF EXISTS;
+DROP TABLE IF EXISTS specification ;
+DROP TABLE IF EXISTS advertisement;
+DROP TABLE IF EXISTS stockpile;
+DROP TABLE IF EXISTS product;
 
 CREATE TABLE product
 (
-    id          INTEGER PRIMARY KEY,
+    id          INTEGER PRIMARY KEY auto_increment,
     title       VARCHAR(50),
     price       DECIMAL,
     rate        FLOAT,

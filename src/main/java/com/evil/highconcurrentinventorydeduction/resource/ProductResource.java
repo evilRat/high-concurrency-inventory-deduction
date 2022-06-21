@@ -84,7 +84,7 @@ public class ProductResource {
             @CacheEvict(key = "#product.id"),
             @CacheEvict(key = "'ALL_PRODUCT'")
     })
-    public Product createProduct(@Valid Product product) {
+    public Product createProduct(@RequestBody @Valid Product product) {
         return service.saveProduct(product);
     }
 
